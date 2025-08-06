@@ -44,7 +44,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	$(CXX) $(CXXFLAGS) $(OPT) $(IDFLAGS) $(DEFINE) -fPIC -MMD -MP -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(OPT) $(IDFLAGS) $(DEFINE) -MMD -MP -c $< -o $@
 
 # ============ DEBUG BUILDS ============
 debug:
