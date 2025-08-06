@@ -42,8 +42,8 @@ int main()
         mstack.push_back(737); // 5, 3, 5, 737
         //[...]
         mstack.push_back(0); // 5, 3, 5, 737, 0
-        std::list<int>::reverse_iterator it = mstack.rbegin();
-        std::list<int>::reverse_iterator ite = mstack.rend();
+        std::list<int>::iterator it = mstack.begin();
+        std::list<int>::iterator ite = mstack.end();
         ++it;
         --it;
         std::cout << "MutantStack contents:" << std::endl;

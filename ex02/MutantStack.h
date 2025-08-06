@@ -24,28 +24,17 @@ public:
         return *this;
     };
 
-    void push(const T &value) {
-        m_stack.insert(m_stack.begin(),value);
-        std::stack<T>::push(value);
-    }
+    typedef typename std::stack<T>::container_type container_type;
 
-    void pop() {
-        if (!m_stack.empty()) {
-            m_stack.erase(m_stack.begin());
-            std::stack<T>::pop();
-        }
-    }
+    typedef typename container_type::iterator iterator;
+    typedef typename container_type::const_iterator const_iterator;
 
-    typedef typename std::vector<T>::iterator iterator;
-    typedef typename std::vector<T>::const_iterator const_iterator;
-
-    iterator begin() { return m_stack.begin(); }
-    const_iterator begin() const { return m_stack.begin(); }
-    iterator end() { return m_stack.end(); }
-    const_iterator end() const { return m_stack.end(); }
+    iterator begin() { return this->c.begin(); }
+    const_iterator begin() const { return this->c.begin(); }
+    iterator end() { return this->c.end(); }
+    const_iterator end() const { return this->c.end(); }
 
 private:
-    std::vector<T> m_stack;
 };
 
 #endif // MUTANTSTACK_H
