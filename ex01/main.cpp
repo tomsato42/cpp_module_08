@@ -1,6 +1,7 @@
 #include <iostream>
-#include <random>
 #include <cstdlib>
+#include <vector>
+#include <list>
 
 #include "Span.h"
 
@@ -17,7 +18,8 @@ int main() {
     }
     {
         Span sp = Span(5);
-        std::array<int, 5> numbers = {6, 3, 17, 9, 11};
+        int arr[] = {6, 3, 17, 9, 11};
+        std::vector<int> numbers(arr, arr + 5);
         sp.addNumbers(numbers.begin(), numbers.end());
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
@@ -41,7 +43,7 @@ int main() {
         }
     }
     {
-        std::array<int, 100000> numbers;
+        std::vector<int> numbers(100000);
         for (int i = 0; i < static_cast<int>(numbers.size()); i++) {
             numbers[i] = i;
         }

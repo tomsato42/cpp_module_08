@@ -1,4 +1,8 @@
 #include "Span.h"
+#include <algorithm>
+#include <exception>
+#include <stdexcept>
+#include <limits>
 
 Span::Span() {
     m_size = 0;
@@ -13,7 +17,7 @@ void Span::addNumber(const int number) {
         m_numbers.push_back(number);
     }
     else {
-        throw std::length_error("Span is full, cannot add more numbers.");
+        throw std::logic_error("Span is full, cannot add more numbers.");
     }
 }
 
@@ -23,7 +27,7 @@ int Span::shortestSpan() const {
     }
     std::vector<int> sorted_numbers = sortNumbers();
     int shortest_span = std::numeric_limits<int>::max();
-    for (size_t i = 1; i < sorted_numbers.size(); ++i) {
+    for (std::size_t i = 1; i < sorted_numbers.size(); ++i) {
         int span = sorted_numbers[i] - sorted_numbers[i - 1];
         if (span < shortest_span) {
             shortest_span = span;
@@ -47,7 +51,7 @@ unsigned int Span::getSize() const {
 
 std::vector<int> Span::sortNumbers() const {
     std::vector<int> numbers_copy = m_numbers;
-    std::sort(numbers_copy.begin(), numbers_copy.end());
+    sort(numbers_copy.begin(), numbers_copy.end());
     return numbers_copy;
 }
 

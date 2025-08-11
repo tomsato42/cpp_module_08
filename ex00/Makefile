@@ -63,4 +63,4 @@ forbidden:
 
 check: forbidden valgrind
 
-.PHONY: all clean fclean re debug valgrind forbidden check norm
+.PHONY: all clean fclean re debug valgrind forbidden check

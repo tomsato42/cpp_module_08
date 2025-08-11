@@ -1,6 +1,7 @@
 #ifndef SPAN_H
 #define SPAN_H
 #include <vector>
+#include <stdexcept>
 
 class Span {
 public:
@@ -27,7 +28,7 @@ private:
 
 template<typename Iterator>
 void Span::addNumbers(Iterator begin, Iterator end) {
-    size_t size = std::distance(begin, end);
+    std::size_t size = std::distance(begin, end);
     if (m_numbers.size() + size > m_size) {
         throw std::length_error("Span is full, cannot add more numbers.");
     }
